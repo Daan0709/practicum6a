@@ -54,6 +54,17 @@ public class Persoon {
             return true;
         }
     }
+
+    public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> listOfGames) {
+        ArrayList<Game> listOfUnownedGames = new ArrayList<>();
+        for (Game g:listOfGames) {
+            if (!games.contains(g)) {
+                listOfUnownedGames.add(g);
+            }
+        }
+        return listOfUnownedGames;
+    }
+
     public String toString(){
         String res = "";
         res += naam + " heeft een budget van €" + String.format("%.2f", budget) + " en bezit de volgende games:";

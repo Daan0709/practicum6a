@@ -1,6 +1,7 @@
 package Practicum;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,5 +22,11 @@ public class Main {
         System.out.println("p1 verkoopt g2 aan p2:"+(p1.verkoop(g2, p2) ? "" : " niet")+" gelukt");
         System.out.println("p1 verkoopt g1 aan p2:"+(p1.verkoop(g1, p2) ? "" : " niet")+" gelukt");
         System.out.println("\np1: " +p1+ "\n\np2: " +p2+ "\n");
+
+        ArrayList<Game> teKoop = new ArrayList<Game>();
+        teKoop.add(g1);
+        teKoop.add(new Game("Mario Kart 8", 2019, 35.00));
+        ArrayList<Game> nogNietInBezit = p1.bepaalGamesNietInBezit(teKoop);
+        System.out.println("p1 heeft de volgende games nog niet: " + nogNietInBezit);
     }
 }
