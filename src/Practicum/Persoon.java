@@ -10,16 +10,12 @@ public class Persoon {
         naam = nm;
         budget = bud;
     }
+
     public double getBudget(){
         return budget;
     }
     public boolean koop(Game g){
-        for (Game game : games){
-            if (g.getNaam().equals(game.getNaam())){
-                return false;
-            }
-        }
-        if (g.huidigeWaarde() > budget){
+        if (games.contains(g) || g.huidigeWaarde() > budget){
             return false;
         }
         else {
@@ -29,13 +25,7 @@ public class Persoon {
         }
     }
     public boolean verkoop(Game g, Persoon koper){
-        boolean isEigenaar = false;
-        for (Game game: games) {
-            if (g.getNaam().equals(game.getNaam())){
-                isEigenaar = true;
-            }
-        }
-        if (!isEigenaar){
+        if (!games.contains(g)){
             return false;
         }
         for (Game game : koper.games){
